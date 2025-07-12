@@ -1,0 +1,12 @@
+[submodule "ui"]
+	path = ui
+	url = https://github.com/visakm/mirror-ui.git
+[submodule "apollo"]
+	path = apollo
+	url = https://github.com/visakm/mirror-apollo.git
+[submodule "redux"]
+	path = redux
+	url = https://github.com/visakm/mirror-redux.git
+[submodule "quiz"]
+	path = quiz
+	url = https://github.com/visakm/mirror-quiz.git
