@@ -1,27 +1,38 @@
 {
-  "name": "wizard",
-  "version": "0.1.0",
+  "name": "@mirror-map/quiz",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "NEXT_TURBOPACK_TRACING=1 next dev --turbopack --port 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.3"
+    "@apollo/client": "catalog:",
+    "@apollo/client-integration-nextjs": "catalog:",
+    "@mirror-map/apollo": "workspace:*",
+    "@mirror-map/redux": "workspace:*",
+    "@mirror-map/ui": "workspace:*",
+    "@reduxjs/toolkit": "catalog:",
+    "@tailwindcss/postcss": "catalog:",
+    "classnames": "^2.5.1",
+    "next": "catalog:",
+    "postcss": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-redux": "catalog:",
+    "redux": "^5.0.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.3",
-    "@eslint/eslintrc": "^3"
+    "@eslint/eslintrc": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-next": "catalog:",
+    "typescript": "catalog:"
   }
 }
