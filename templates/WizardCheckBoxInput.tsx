@@ -4,7 +4,6 @@ import React, { useCallback } from "react";
 import { CheckboxInput } from "@mirror-map/ui/components";
 import { useAppDispatch, useAppSelector } from "~/hooks/redux";
 import { checkAnswer } from "~/providers/redux/WizardSlice";
-import { makeSelectAnswer } from "~/providers/redux/WizardSelectors";
 
 interface WizardCheckBoxInputProps {
   id: string;
@@ -18,8 +17,13 @@ const WizardCheckBoxInput = ({
   questionNo,
 }: WizardCheckBoxInputProps) => {
   const dispatch = useAppDispatch();
-  const selectAnswer = makeSelectAnswer(questionNo, answerNo);
-  const answer = useAppSelector(selectAnswer);
+
+  const answers = useAppSelector(
+    (state) =>
+      state.WIZARD.questions.find((q) => q.questionNo === questionNo)?.answers
+  );
+
+  const answer = answers?.find((a) => a.answerNo === answerNo);
 
   const handleChange = useCallback(() => {
     dispatch(checkAnswer({ questionNo, answerNo }));
@@ -28,10 +32,15 @@ const WizardCheckBoxInput = ({
   return (
     <CheckboxInput
       id={id}
-      checked={!!answer}
+      checked={Boolean(answer)}
       value={answerNo}
       handleChange={handleChange}
       className="peer"
+      disabled={
+        answers?.length && answers?.length >= 3 && !Boolean(answer)
+          ? true
+          : false
+      }
     />
   );
 };

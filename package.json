@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "catalog:",
     "@tailwindcss/postcss": "catalog:",
     "classnames": "^2.5.1",
+    "motion": "^12.23.5",
     "next": "catalog:",
     "postcss": "catalog:",
     "react": "catalog:",

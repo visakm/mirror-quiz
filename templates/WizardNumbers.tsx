@@ -2,16 +2,16 @@ import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
-interface QuesionNumbersProps {
+interface WizardNumbersProps {
   currentQuestion: number;
   takeQuizId: string;
   totalQuestions: number;
 }
-const QuesionNumbers = ({
+const WizardNumbers = ({
   currentQuestion,
   takeQuizId,
   totalQuestions,
-}: QuesionNumbersProps) => {
+}: WizardNumbersProps) => {
   return (
     <div className="flex flex-row w-full justify-between items-center my-4 xl:my-9">
       {Array.from({ length: totalQuestions }, (_, index) => (
@@ -49,4 +49,4 @@ const QuesionNumbers = ({
   );
 };
 
-export default QuesionNumbers;
+export default WizardNumbers;

@@ -2,9 +2,9 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { TakeQuizAction } from "~/actions/quiz.action";
 import Question from "~/templates/Question";
-import QuesionNumbers from "~/templates/QuesionNumbers";
 import Answer from "~/templates/Answer";
-import QuestionButtons from "~/templates/QuestionButtons";
+import WizardNumbers from "~/templates/WizardNumbers";
+import WizardButtons from "~/templates/WizardButtons";
 import TakeQuizInitializer from "~/cache/TakeQuizInitializer";
 
 interface QuestionPageProps {
@@ -26,7 +26,7 @@ const QuestionPage = async ({ params, searchParams }: QuestionPageProps) => {
 
   return (
     <TakeQuizInitializer takeQuizData={takeQuiz}>
-      <QuesionNumbers
+      <WizardNumbers
         takeQuizId={take_id}
         currentQuestion={question.number}
         totalQuestions={quiz.questions.length}
@@ -44,7 +44,7 @@ const QuestionPage = async ({ params, searchParams }: QuestionPageProps) => {
           />
         ))}
       </div>
-      <QuestionButtons
+      <WizardButtons
         {...{
           takeQuizId: take_id,
           currentQuestion: question.number,

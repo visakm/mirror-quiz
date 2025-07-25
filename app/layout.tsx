@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { bostonian, ebGaramond, inter } from "@mirror-map/ui/fonts";
-import "../globals.sass";
 import WizardApolloWrapper from "~/providers/apollo/WizardApolloWrapper";
 import WizardReduxWrapper from "~/providers/redux/WizardReduxWrapper";
-import TakeQuizInitializer from "~/cache/TakeQuizInitializer";
+import "../globals.sass";
 
 export const metadata: Metadata = {
   title: "Mirror & Map",

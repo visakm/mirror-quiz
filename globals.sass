@@ -44,6 +44,12 @@
       opacity: 0.3
       z-index: -2
 
-  #result-triangle
-    clip-path: polygon(0% 0%, 50% 100%, 100% 0%)
-    @apply bg-blue-700 my-auto w-40 h-28 border-2 border-white
+  .center-mode
+    animation: center-mode 2s ease-in-out
+
+@keyframes center-mode
+  0%
+    transform: scale(1) translate(0, 0)
+
+  100%
+    transform: scale(1.5) translate(-50%, 100%)
