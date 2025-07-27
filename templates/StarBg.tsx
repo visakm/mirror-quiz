@@ -8,7 +8,7 @@ const StarBg = ({ src }: { src: string }) => {
       alt="Mirror & Map"
       fill
       priority
-      className="fixed inset-0 w-full h-full object-cover -z-10 opacity-50"
+      className="fixed inset-0 w-full  object-cover -z-10 opacity-50"
     />
   );
 };

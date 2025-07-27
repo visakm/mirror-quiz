@@ -29,20 +29,20 @@ const ResultButtons = ({ take_id }: ResultButtonsProps) => {
   };
 
   return (
-    <>
+    <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-y-4">
       <div className="flex flex-col justify-between items-center w-full gap-y-4">
         <Button
           text="Download Mirror Report"
           twButtonSize={{
-            width: "w-[110.86px] md:w-[300px]",
+            width: "w-[250.86px] md:w-[300px]",
             height: "h-[34.29px] md:h-[56px]",
           }}
           twInside1Size={{
-            width: "w-[106.86px] md:w-[296px]",
+            width: "w-[246.86px] md:w-[296px]",
             height: "h-[30.29px] md:h-[52px] ",
           }}
           twInside2Size={{
-            width: "w-[102.86px] md:w-[292px]",
+            width: "w-[242.86px] md:w-[292px]",
             height: "h-[26.29px] md:h-[46px]",
           }}
           handleClick={handleDownloadResult}
@@ -50,15 +50,15 @@ const ResultButtons = ({ take_id }: ResultButtonsProps) => {
         <Button
           text="Explore All Archetypes"
           twButtonSize={{
-            width: "w-[110.86px] md:w-[300px]",
+            width: "w-[250.86px] md:w-[300px]",
             height: "h-[34.29px] md:h-[56px]",
           }}
           twInside1Size={{
-            width: "w-[106.86px] md:w-[296px]",
+            width: "w-[246.86px] md:w-[296px]",
             height: "h-[30.29px] md:h-[52px] ",
           }}
           twInside2Size={{
-            width: "w-[102.86px] md:w-[292px]",
+            width: "w-[242.86px] md:w-[292px]",
             height: "h-[26.29px] md:h-[46px]",
           }}
           handleClick={() => {}}
@@ -68,15 +68,15 @@ const ResultButtons = ({ take_id }: ResultButtonsProps) => {
         <Button
           text="Email Result"
           twButtonSize={{
-            width: "w-[110.86px] md:w-[300px]",
+            width: "w-[250.86px] md:w-[300px]",
             height: "h-[34.29px] md:h-[56px]",
           }}
           twInside1Size={{
-            width: "w-[106.86px] md:w-[296px]",
+            width: "w-[246.86px] md:w-[296px]",
             height: "h-[30.29px] md:h-[52px] ",
           }}
           twInside2Size={{
-            width: "w-[102.86px] md:w-[292px]",
+            width: "w-[242.86px] md:w-[292px]",
             height: "h-[26.29px] md:h-[46px]",
           }}
           handleClick={() => {}}
@@ -84,15 +84,15 @@ const ResultButtons = ({ take_id }: ResultButtonsProps) => {
         <Button
           text="Book a Mirror Reading"
           twButtonSize={{
-            width: "w-[110.86px] md:w-[300px]",
+            width: "w-[250.86px] md:w-[300px]",
             height: "h-[34.29px] md:h-[56px]",
           }}
           twInside1Size={{
-            width: "w-[106.86px] md:w-[296px]",
+            width: "w-[246.86px] md:w-[296px]",
             height: "h-[30.29px] md:h-[52px] ",
           }}
           twInside2Size={{
-            width: "w-[102.86px] md:w-[292px]",
+            width: "w-[242.86px] md:w-[292px]",
             height: "h-[26.29px] md:h-[46px]",
           }}
           handleClick={() => {
@@ -100,7 +100,7 @@ const ResultButtons = ({ take_id }: ResultButtonsProps) => {
           }}
         />
       </div>
-    </>
+    </div>
   );
 };
 

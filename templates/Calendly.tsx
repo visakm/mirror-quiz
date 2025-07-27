@@ -14,7 +14,7 @@ const Calendly = () => {
   return (
     <>
       <div
-        className="calendly-inline-widget w-full h-full"
+        className="calendly-inline-widget w-full h-full my-auto rounded-lg absolute top-[10%] md:top-auto"
         data-url="https://calendly.com/m-m-davaeiha?background_color=ecaebd&text_color=331663&primary_color=D0345B"
       ></div>
       <script

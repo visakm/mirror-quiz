@@ -4,17 +4,23 @@ import React, { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@mirror-map/ui/components";
 import {
+  GetTakeQuizDocument,
   useCheckQuestionMutation,
-  useFinishQuizMutation,
+  useGetTakeQuizQuery,
 } from "@mirror-map/apollo/generated/mirror-map.schema";
 import { useAppSelector } from "~/hooks/redux";
 
 interface WizardButtonsProps {
   currentQuestion: number;
+  totalQuestions: number;
   takeQuizId: string;
 }
 
-const WizardButtons = ({ takeQuizId, currentQuestion }: WizardButtonsProps) => {
+const WizardButtons = ({
+  takeQuizId,
+  currentQuestion,
+  totalQuestions,
+}: WizardButtonsProps) => {
   const router = useRouter();
   const questions = useAppSelector((state) => state.WIZARD?.questions);
   const answersOfCurrentQuestion = questions?.find(
@@ -22,7 +28,16 @@ const WizardButtons = ({ takeQuizId, currentQuestion }: WizardButtonsProps) => {
   );
 
   const [checkQuestion] = useCheckQuestionMutation();
-  const [finishQuiz] = useFinishQuizMutation();
+
+  const { data: takeQuizData } = useGetTakeQuizQuery({
+    variables: {
+      input: {
+        id: takeQuizId,
+      },
+    },
+    fetchPolicy: "cache-only",
+    nextFetchPolicy: "cache-only",
+  });
 
   const previousDisabled = currentQuestion === 1;
   const nextDisabled =
@@ -47,28 +62,29 @@ const WizardButtons = ({ takeQuizId, currentQuestion }: WizardButtonsProps) => {
           question_no: currentQuestion,
         },
       },
+      //update the cache with the checked question data
+      update: (cache, { data }) => {
+        cache.writeQuery({
+          query: GetTakeQuizDocument,
+          variables: { input: { id: takeQuizId } },
+          data: { GetTakeQuiz: data?.CheckQuestion },
+        });
+      },
       //navigation + toast notification
-      onCompleted: () =>
-        router.push(`/${currentQuestion + 1}?take_id=${takeQuizId}`),
+      onCompleted: (data) => {
+        if (data.CheckQuestion.completed_at) {
+          router.push(`/result?take_id=${takeQuizId}`);
+        } else {
+          router.push(`/${currentQuestion + 1}?take_id=${takeQuizId}`);
+        }
+      },
     });
-
-    if (currentQuestion === questions?.length) {
-      await finishQuiz({
-        variables: {
-          input: { take_quiz_id: takeQuizId },
-        },
-        onCompleted: () => {
-          router.push("/result");
-        },
-      });
-      return;
-    }
   }, [
     checkQuestion,
     answersOfCurrentQuestion,
     takeQuizId,
     currentQuestion,
-    finishQuiz,
+    totalQuestions,
   ]);
 
   const handlePreviousClick = useCallback(() => {
@@ -95,7 +111,12 @@ const WizardButtons = ({ takeQuizId, currentQuestion }: WizardButtonsProps) => {
         }}
       />
       <Button
-        text="Next"
+        text={
+          Object.keys(takeQuizData?.GetTakeQuiz.options || {}).length ===
+          totalQuestions - 1
+            ? "Finish"
+            : "Next"
+        }
         disabled={nextDisabled}
         handleClick={handleNextClick}
         twButtonSize={{

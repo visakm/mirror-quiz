@@ -11,8 +11,8 @@ const ResultPage = async ({ searchParams }: ResultPageProps) => {
 
   return (
     <>
-      <ResultPlanets />
-      <div className="flex items-center justify-between w-full -mt-20">
+      <ResultPlanets take_id={take_id} />
+      <div className="flex items-center justify-between w-full lg:-mt-20 ">
         <ResultButtons take_id={take_id} />
       </div>
     </>

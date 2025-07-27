@@ -8,6 +8,13 @@
 @utility number-bg-gradient
   background: linear-gradient(90deg, var(--color-primary-500) 1.19%, var(--color-primary-300) 99.65%, var(--color-primary-100) 107.86%)
 
+@utility text-gradient
+  background: linear-gradient(94.45deg, var(--color-primary-500) -20.4%, var(--color-tertiary-400) 50.4%, var(--color-secondary-500) 148.7%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  color: transparent
+
 @theme
   --border-gradient: radial-gradient(123.12% 66.19% at 49.14% 50%, var(--color-primary-500) 0%, var(--color-tertiary-500) 33%, var(--color-secondary-500) 67%, var(--color-primary-500) 83%)
 
@@ -43,7 +50,8 @@
       filter: blur(20px)
       opacity: 0.3
       z-index: -2
-
+  .text-gradient
+    @apply text-gradient
   .center-mode
     animation: center-mode 2s ease-in-out
 

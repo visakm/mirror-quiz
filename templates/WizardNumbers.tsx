@@ -19,7 +19,7 @@ const WizardNumbers = ({
           <Link
             href={`/${index + 1}?take_id=${takeQuizId}`}
             className={twMerge(
-              "font-bold text-sm xl:text-5xl leading-headline font-eb-garamond w-6 h-6 lg:w-12 lg:h-12 hover:scale-110  text-content-200 rounded-full flex items-center justify-center",
+              "font-bold text-sm md:text-2xl xl:text-5xl leading-headline font-eb-garamond w-6 h-6 lg:w-12 lg:h-12 hover:scale-110  text-content-200 rounded-full flex items-center justify-center",
               index + 1 < currentQuestion
                 ? "text-gray-900 number-gradient "
                 : index + 1 > currentQuestion

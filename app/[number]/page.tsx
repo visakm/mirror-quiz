@@ -48,6 +48,7 @@ const QuestionPage = async ({ params, searchParams }: QuestionPageProps) => {
         {...{
           takeQuizId: take_id,
           currentQuestion: question.number,
+          totalQuestions: quiz.questions.length,
         }}
       />
     </TakeQuizInitializer>

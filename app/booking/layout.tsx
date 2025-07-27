@@ -4,9 +4,9 @@ import StarBg from "~/templates/StarBg";
 
 const BookingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="relative flex flex-col items-center justify-center pb-20  h-screen">
+    <div className="flex flex-col  items-center justify-center h-screen">
       <StarBg src="/ResultStarBg.svg" />
-      <div className="w-full h-full flex flex-col gap-y-2 items-center justify-start">
+      <div className="relative w-full h-full flex flex-col  items-center justify-between px-3  overflow-hidden">
         <QuizHeader />
         {children}
       </div>

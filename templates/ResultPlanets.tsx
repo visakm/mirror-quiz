@@ -3,9 +3,12 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import ResultMode from "./ResultMode";
 import ResultTriangle from "./ResultTriangle";
-import { Planet } from "~/@types/planet";
 
-const ResultPlanets = () => {
+interface ResultPlanetsProps {
+  take_id: string;
+}
+
+const ResultPlanets = ({ take_id }: ResultPlanetsProps) => {
   const trangleRef = useRef<HTMLImageElement>(null);
   // +1 : clockwise
   // -1 : counter-clockwise
@@ -43,48 +46,48 @@ const ResultPlanets = () => {
   }, []);
 
   return (
-    <div className="relative mb-40 mt-20">
+    <div className="relative lg:mb-40 lg:mt-20">
       {triangleSize.x > 0 && triangleSize.y > 0 && (
         <>
           <ResultMode
             id="shadow-mode"
-            src="/Shadow.png"
-            alt="Shadow"
-            planet={Planet.SHADOW}
+            take_id={take_id}
+            src="/Venus.png"
+            name="SHADOW"
             initialPosition={0}
             direction={direction}
             triangleSize={triangleSize}
             handleClick={handleClick}
-            className="absolute -top-[40%] -left-[10%]"
-            // className="absolute -bottom-[40%] right-[30%] w-80"
+            className="absolute -bottom-[40%] right-[10%] md:right-[23%] lg:-bottom-[40%] lg:right-[30%] transform-gpu"
           />
           <ResultMode
             id="primary-mode"
-            src="/Primary.png"
-            alt="primary"
-            planet={Planet.PRIMARY}
+            take_id={take_id}
+            src="/Venus.png"
+            name="PRIMARY"
             initialPosition={-1}
             direction={direction}
             triangleSize={triangleSize}
             handleClick={handleClick}
-            className="absolute -top-[40%] -left-[10%]"
-            // className="absolute -top-[40%] -left-[10%] w-80 h-80"
+            className="absolute -bottom-[40%] right-[10%]  md:right-[23%] lg:-bottom-[40%] lg:right-[30%] transform-gpu"
           />
           <ResultMode
             id="supporting-mode"
-            src="/Supporting.png"
-            alt="supporting"
-            planet={Planet.SUPPORTING}
+            take_id={take_id}
+            src="/Venus.png"
+            name="SUPPORTING"
             initialPosition={+1}
             direction={direction}
             triangleSize={triangleSize}
             handleClick={handleClick}
-            className="absolute -top-[40%] -left-[10%]"
-            // className="absolute -top-[40%] -right-[10%] w-80 h-80"
+            className="absolute -bottom-[40%] right-[10%]  md:right-[23%]  lg:-bottom-[40%] lg:right-[30%] transform-gpu"
           />
         </>
       )}
-      <ResultTriangle ref={trangleRef} />
+      <ResultTriangle
+        className=" xl:w-[1000px] lg:w-[800px] md:w-[550px] w-[350px] h-80 md:h-auto my-auto object-cover lg:object-fill object-center"
+        ref={trangleRef}
+      />
     </div>
   );
 };

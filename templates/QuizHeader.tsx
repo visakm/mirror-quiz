@@ -9,7 +9,7 @@ const QuizHeader = () => {
         alt="Mirror & Map"
         width={400}
         height={400}
-        className="z-10 backdrop-blur-none w-60 xl:w-96"
+        className="z-10 backdrop-blur-none w-60 md:w-80 xl:w-96 "
       />
     </header>
   );
